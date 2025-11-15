@@ -58,7 +58,7 @@ app.get("/transcript", async function (req, res) {
 
             // 2️⃣ Fallback: Render-friendly proxy
             transcriptData = await fetchTranscript(url, {
-                proxy: "https://cors-anywhere.herokuapp.com/"
+                proxy: "https://proxy.scrapeops.io/v1/?api_key=1c4b25cd-c000-4c37-8ea6-540c4e8c8a14&url="
             });
         }
 
