@@ -13,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "google-translate-api-x": "^10.7.2",
     "html-entities": "^2.6.0",
     "nodemon": "^3.1.11",
     "youtube-transcript-plus": "^1.1.1"
