@@ -3,8 +3,8 @@ import { fetchTranscript } from 'youtube-transcript-plus';
 import express from "express"
 import cors from "cors"
 const app = express()
-app.use(cors())
-
+app.use(cors({ origin: "*" }))
+app.use(express.json())
 import translate from "google-translate-api-x";
 
 function splitText(text, size = 3000) {
@@ -69,6 +69,6 @@ app.get("/transcript", async function (req, res) {
     }
 })
 
-app.listen(3000, function () {
-    console.log("http://localhost:3000")
+app.listen(process.env.PORT || 3000, function () {
+    console.log("ok")
 })
