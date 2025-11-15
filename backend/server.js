@@ -50,7 +50,6 @@ app.get("/transcript", async function (req, res) {
     try {
         let transcriptData;
 
-        // 1️⃣ Try normal fetch (works locally)
         try {
             transcriptData = await fetchTranscript(url);
         } catch (err) {
@@ -68,7 +67,6 @@ app.get("/transcript", async function (req, res) {
             });
         }
 
-        // Decode text
         const cleaned = transcriptData.map(item => ({
             ...item,
             text: decode(item.text)
@@ -76,7 +74,6 @@ app.get("/transcript", async function (req, res) {
 
         const combined = cleaned.map((item) => item.text).join(" ");
 
-        // Safer translation logic
         let final = combined;
 
         if (transcriptData[0].lang !== lang) {
