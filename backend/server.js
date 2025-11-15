@@ -55,9 +55,9 @@ app.get("/transcript", async function (req, res) {
         }));
 
         const combined = cleaned.map((item) => item.text).join(" ");
-
+        let final = combined;
         if(transcriptData[0].lang!=lang){
-            var final = await t(combined, lang)   
+            final = await t(combined, lang)   
         }
         return res.json({ FetchedData: final })
     }
@@ -69,6 +69,6 @@ app.get("/transcript", async function (req, res) {
     }
 })
 
-app.listen(3000, function () {
-    console.log("ok")
-})
+app.listen(process.env.PORT || 3000, () => {
+  console.log("server live");
+});
